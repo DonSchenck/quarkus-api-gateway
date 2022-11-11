@@ -1,5 +1,16 @@
 # quarkus-api-gateway Project
 
+This project is the source code for the image quay.io/rhdevelopers/movie-recommendation-engine. That image is used by the OpenShift Sandbox activity entitled "Using the Circuit Breaker Pattern".
+
+## What does this do?
+This very simple RESTful service will return a JSON array of recommended movies.
+
+## What's the API?
+http://localhost:8080/recommendations
+
+---
+## Quarkus
+
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
