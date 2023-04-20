@@ -1,5 +1,8 @@
 package com.redhat;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -10,7 +13,7 @@ import org.eclipse.microprofile.faulttolerance.CircuitBreaker;
 import org.eclipse.microprofile.faulttolerance.Fallback;
 import org.eclipse.microprofile.faulttolerance.Timeout;
 
-@Path("/gateway")
+@Path("/gateway/quotes")
 @Produces(MediaType.APPLICATION_JSON)
 public class GatewayResource {
     @RestClient
@@ -25,12 +28,17 @@ public class GatewayResource {
         delay = 5000,
         successThreshold = 4
     )
-    @Fallback(fallbackMethod = "movieRecommendationsFallbackMessage")
-    public String message() {
+    @Fallback(fallbackMethod = "QuotesFallbackMessage")
+    public List<Quote> message() {
         return client.get();
     }
 
-    private String movieRecommendationsFallbackMessage() {
-        return "Movie Recommendations Fallback Message";
+    private List<Quote> QuotesFallbackMessage() {
+        Quote q = new Quote();
+        List<Quote> l = new ArrayList<Quote>();
+        q.id=0;
+        q.author="CIRCUIT_BREAKER";
+        q.quotation="Quotes service is not responding; Circuit Breaker is open.";
+        return l;
     }
 }

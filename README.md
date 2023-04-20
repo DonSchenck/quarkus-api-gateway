@@ -1,6 +1,6 @@
 # quarkus-api-gateway Project
 
-This project is the source code for the image quay.io/rhdevelopers/movie-recommendation-engine. That image is used by the OpenShift Sandbox activity entitled "Using the Circuit Breaker Pattern".
+This project is the source code for the image quay.io/rhdevelopers/movie-recommendation-engine. That image is used by the [OpenShift Sandbox](https://developers.redhat.com/developer-sandbox) activity entitled "Using the Circuit Breaker Pattern".
 
 ## What does this do?
 This very simple RESTful service will return a JSON array of recommended movies.
